@@ -29,31 +29,31 @@ buildStockList(){
    const sl = items.map((key, index)=>{
      //console.log(this.state.stockData['Time Series (5min)'][key]);
      //console.log(key);
-     return <div key={key}>
-     <Row>
-        <Col>
-        {JSON.stringify(key)}
-        </Col>
-        <Col>
-          {JSON.stringify(this.state.stockData['Time Series (5min)'][key])}
-        </Col>
-      </Row>
-    </div>
+     return <Col key={key} xs="12" sm="6" md="4">
+            <Card>
+                <CardHeader>
+                {JSON.stringify(key)}
+                </CardHeader>
+                <CardBody>
+                  {JSON.stringify(this.state.stockData['Time Series (5min)'][key])}
+                </CardBody>
+            </Card>
+            </Col>
+
 
    })
 
    this.setState({stockList: sl});
+
  }
 
   render() {
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col xs="12" sm="6" md="4">
-            {this.state.stockList}
-          </Col>
-          </Row>
-       </div>
+          {this.state.stockList}
+        </Row>
+      </div>
     );
   }
 }
